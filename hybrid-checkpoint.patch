@@ -1,0 +1,16 @@
+diff --git a/tools/server/server-context.cpp b/tools/server/server-context.cpp
+index b6835e434..6dc7a1b58 100644
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -3358,6 +3358,11 @@ private:
+                                             if (cur.pos_max > pos_next) {
+                                                 return false;
+                                             }
++                                            if (llama_model_is_recurrent(model_tgt) ||
++                                                llama_model_is_hybrid(model_tgt)) {
++                                                return true;
++                                            }
++
+                                             return cur.pos_min < pos_min_thold || cur.pos_min == 0;
+                                         }
+                                     );
