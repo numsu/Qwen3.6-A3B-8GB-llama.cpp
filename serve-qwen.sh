@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 LLAMA="$ROOT/llama.cpp/build/bin/Release"
-MODEL="$ROOT/models/Qwen3.6-35B-A3B-GGUF/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf"
+MODEL="$ROOT/models/Qwen3.6-35B-A3B-GGUF/Qwen3.6-35B-A3B-UD-Q6_K_XL.gguf"
 
 exec "$LLAMA/llama-server.exe" \
   -m "$MODEL" \
@@ -15,7 +15,7 @@ exec "$LLAMA/llama-server.exe" \
   --load-mode none \
   -c 262144 \
   -b 16384 \
-  -ub 1536 \
+  -ub 1472 \
   --cache-ram 10240 \
   --ctx-checkpoints 8 \
   --checkpoint-min-step 2048 \
@@ -28,7 +28,7 @@ exec "$LLAMA/llama-server.exe" \
   --reasoning on \
   --reasoning-format deepseek \
   --parallel 1 \
-  --reasoning-effort low \
-  --reasoning-budget 1024 \
+  --reasoning-effort high \
+  --reasoning-budget 8096 \
   --cont-batching \
   --metrics

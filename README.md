@@ -1,6 +1,6 @@
 # Qwen3.6-A3B-8GB-llama.cpp
 
-Run **Qwen3.6-35B-A3B UD-Q4_K_XL** with a 256K context on an 8 GB NVIDIA
+Run **Qwen3.6-35B-A3B UD-Q6_K_XL** with a 256K context on an 8 GB NVIDIA
 GPU by keeping the MoE experts in system RAM.
 
 Tested on an Intel Core Ultra 7 265HX, 64 GB RAM, and an 8 GB NVIDIA GPU
@@ -31,10 +31,10 @@ cmake -S llama.cpp -B llama.cpp/build \
 cmake --build llama.cpp/build --config Release -j
 ```
 
-Download **Qwen3.6-35B-A3B UD-Q4_K_XL** into:
+Download **Qwen3.6-35B-A3B UD-Q6_K_XL** into:
 
 ``` text
-models/Qwen3.6-35B-A3B-GGUF/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf
+models/Qwen3.6-35B-A3B-GGUF/Qwen3.6-35B-A3B-UD-Q6_K_XL.gguf
 ```
 
 Then start the server:
@@ -58,7 +58,7 @@ without sacrificing a large context window.
 
 The final setup uses:
 
--   Qwen3.6-35B-A3B UD-Q4_K_XL
+-   Qwen3.6-35B-A3B UD-Q6_K_XL
 -   256K context
 -   Q8_0 K/V cache
 -   GPU acceleration for the dense workload
